@@ -1,4 +1,4 @@
-package ca.ualberta.cs.lonelytwitter;
+package ca.ualberta.cs.lonelytwitter.Tweet;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -17,6 +17,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import ca.ualberta.cs.lonelytwitter.R;
+import ca.ualberta.cs.lonelytwitter.Tweet.Tweet;
 
 public class LonelyTwitterActivity extends Activity {
 
@@ -37,10 +40,31 @@ public class LonelyTwitterActivity extends Activity {
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
+
+			public void onClick(View v){
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
+
+				Tweet tweet = new ImportantTweet("test string");
+				NormalTweet normaltweet = new NormalTweet()Tweet("test string");
+					try{
+						if (tweet.isImportant())
+							tweet.setMessage("better string");
+					} catch (Exception e) {
+						throw new RuntimeException();
+					}
+
+				String string = tweet.getMessage();
+
+				ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
+				tweetList.add(tweet);
+				tweetList.add(normaltweet);
+
+
 				saveInFile(text, new Date(System.currentTimeMillis()));
 				finish();
+				}
+
 
 			}
 		});
