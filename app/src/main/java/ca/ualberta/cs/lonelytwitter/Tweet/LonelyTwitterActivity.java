@@ -46,7 +46,8 @@ public class LonelyTwitterActivity extends Activity {
 				String text = bodyText.getText().toString();
 
 				Tweet tweet = new ImportantTweet("test string");
-				NormalTweet normaltweet = new NormalTweet()Tweet("test string");
+				NormalTweet normaltweet = new NormalTweet();
+					Tweet("test string");
 					try{
 						if (tweet.isImportant())
 							tweet.setMessage("better string");
