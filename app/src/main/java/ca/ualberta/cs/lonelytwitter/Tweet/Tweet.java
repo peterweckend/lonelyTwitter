@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter.Tweet;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -27,21 +28,28 @@ public abstract class Tweet implements Tweetable {
         this.message = message;
     }
 
+    public void addMood(String currentmood){
+        moodList.add(currentmood);
+    }
+
     private Date date;
     private String message;
+    private ArrayList<String> moodList;
 
     public Tweet(String message) {
         this.message = message;
         this.date = new Date();
+        this.moodList = new ArrayList<String>();
     }
 
     public Tweet(Date date, String message) {
         this.message = message;
         this.date = date;
+        this.moodList = new ArrayList<String>();
     }
 
     public Tweet() {
-        super();
+        this.moodList = new ArrayList<String>();
         this.date = new Date();
 
     }
